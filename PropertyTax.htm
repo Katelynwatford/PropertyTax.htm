@@ -1,0 +1,92 @@
+<script type="text/javascript">
+<!--
+var charlesRateLow = .01;
+var charlesRateMid = .015;
+var charlesRateHigh =.02;
+var charlesRateLowCutOff = 50000;
+var charlesRateMidCutOff = 50000;
+var charlesRateHighCutOff = 150000;
+var dorchesterRateLow = .0125;
+var dorchesterRateMid = .0150;
+var dorchesterRateHigh = .0175;
+var dorchesterRateLowCutOff = 50000;
+var dorchesterRateMidCutOff = 50000;
+var dorchesterRateHighCutOff = 150000;
+var berkeleyRateLow = .02;
+var berkeleyRateMid = .0225;
+var berkeleyRateHigh = .0275;
+var berkeleyRateLowCutOff = 50000;
+var berkeleyRateMidCutOff = 50000;
+var berkeleyRateHighCutOff = 150000;
+var valueOfHome;
+var taxRate;
+var thePropertyTaxOwed;
+//input
+countyName = prompt("What is the county name?", "");
+valueOfHome = prompt("What is the vaule of the home?", "");
+propertyTaxOwed = prompt("What is the property tax owed?", "");
+
+//calculations
+switch (countyName)
+{
+
+case "charleston":
+{
+         if (valueOfHome <= charlesRateLowCutOff)
+{
+                
+               taxRate = charlesRateLow;
+}
+          else if (valueOfHome > charlesRateHighCutOff)
+{					
+                 taxRate = charlesRateHigh;
+}
+         else
+{
+                taxRate = charlesRateMid;
+}	
+}						
+break;
+
+case "dorchester":
+{		
+         if (valueOfHome <= dorchesterRateLowCutOff)
+{
+               taxRate = dorchesterRateLow;
+}
+         else if (valueOfHome > dorchesterRateHighCutOff)
+{               
+                 taxRate = dorchesterRateHigh;
+}
+         else
+{               
+                taxRate = dorchesterRateMid;
+}
+}
+break;
+
+case "berkeley":
+{
+         if (valueOfHome <= berkeleyRateLowCutOff)
+{               
+               taxRate = berkeleyRateLow;
+}
+         else if (valueOfHome > berkeleyRateHighCutOff)
+{               
+                 taxRate = berkeleyRateHigh;
+}
+         else
+{               
+                taxRate = berkeleyRateMid;
+}
+}
+break;
+}
+
+thePropertyTaxOwed = valueOfHome * taxRate;
+
+document.write("The county name is " + countyName);
+document.write("<br>The value of the home is $" + valueOfHome);
+document.write("<br>The property Tax Owed is $" + thePropertyTaxOwed);
+// -->
+</script>
